@@ -1,0 +1,36 @@
+h1
+{
+    font-size: 70px;
+    text-align: center;
+    padding-top: 30px;
+    color: #e00022 ;
+    font-weight: bolder;
+}
+
+p
+{
+    font-size: 40px;
+    text-align: center;
+    padding-top: 30px;
+    color: #e00022 ;
+    font-weight: bolder;
+}
+
+html
+{
+    background-color: #4c5c68;
+}
+
+.butn
+{
+    background-color: #e00022;
+    font-family: "Helvetica", sans-serif;
+    width: 200px;
+    height: 70px;
+    font-size: 30px;
+    color: white;
+    margin-top: 30px;
+    margin-left: 44%;
+    cursor:pointer;
+
+}

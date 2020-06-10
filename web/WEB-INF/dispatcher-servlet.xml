@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+        xsi:schemaLocation="http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:beans="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.springframework.org/schema/mvc"
+        xmlns:mvc="http://www.springframework.org/schema/mvc">
+
+
+    <beans:bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <beans:property value="/WEB-INF/view" name="prefix"/>
+        <beans:property value=".jsp" name="suffix"/>
+    </beans:bean>
+    <beans:bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+                id="MotorShow">
+        <beans:property value="org.postgresql.Driver" name="driverClassName"/>
+        <beans:property value="jdbc:postgresql://localhost:5432/MotorShow" name="url"/>
+        <beans:property value="postgres" name="username"/>
+        <beans:property value="lorein11" name="password"/>
+    </beans:bean>
+    <beans:bean class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" id="hibernate4AnnotatedSessionFactory">
+        <beans:property name="dataSource" ref="MotorShow"/>
+        <beans:property name="annotatedClasses">
+            <beans:list>
+                <beans:value>com.Salon.Selling</beans:value>
+                <beans:value>com.Salon.Selling_auto</beans:value>
+                <beans:value>com.Salon.Auto</beans:value>
+                <beans:value>com.Salon.Complect</beans:value>
+                <beans:value>com.Salon.SostavCompl</beans:value>
+            </beans:list>
+        </beans:property>
+        <beans:property name="hibernateProperties">
+            <beans:props>
+                <beans:prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</beans:prop>
+                <beans:prop key="connection.driver_class">org.postgresql.Driver</beans:prop>
+                <beans:prop key="connection.url">jdbc:postgresql://localhost:5432/MotorShow</beans:prop>
+                <beans:prop key="hibernate.show_sql">true</beans:prop>
+                <beans:prop key="generateDdl">true</beans:prop>
+                <beans:prop key="hbm2ddl.auto">update</beans:prop>
+            </beans:props>
+        </beans:property>
+    </beans:bean>
+    <beans:bean class="com.DAO.SellingDAO" id="sellingDAO">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </beans:bean>
+    <beans:bean class="com.DAO.Selling_autoDAO" id="selling_autoDAO">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </beans:bean>
+    <beans:bean class="com.DAO.AutoDAO" id="autoDAO">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </beans:bean>
+    <beans:bean class="com.DAO.ComplectDAO" id="complectDAO">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </beans:bean>
+    <beans:bean class="com.DAO.SostavComplDAO" id="sostavcomplDAO">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </beans:bean>
+    <beans:bean class="com.join.Join1DAO" id="join1DAO">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </beans:bean>
+    <beans:bean class="com.join.Join2DAO" id="join2DAO">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </beans:bean>
+    <beans:bean class="com.join.Join3DAO" id="join3DAO">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </beans:bean>
+
+
+    <beans:bean class="com.service.SellingService" id="sellingService">
+        <beans:property name="sellingDAO" ref="sellingDAO"/>
+    </beans:bean>
+    <beans:bean class="com.service.Selling_autoService" id="selling_autoService">
+        <beans:property name="selling_autoDAO" ref="selling_autoDAO"/>
+    </beans:bean>
+    <beans:bean class="com.service.AutoService" id="autoService">
+        <beans:property name="autoDAO" ref="autoDAO"/>
+    </beans:bean>
+    <beans:bean class="com.service.ComplectService" id="complectService">
+        <beans:property name="complectDAO" ref="complectDAO"/>
+    </beans:bean>
+    <beans:bean class="com.service.SostavComplService" id="sostavcomplService">
+        <beans:property name="sostavcomplDAO" ref="sostavcomplDAO"/>
+    </beans:bean>
+    <beans:bean class="com.join.Join1Service" id="join1Service">
+        <beans:property name="join1DAO" ref="join1DAO"/>
+    </beans:bean>
+    <beans:bean class="com.join.Join2Service" id="join2Service">
+        <beans:property name="join2DAO" ref="join2DAO"/>
+    </beans:bean>
+    <beans:bean class="com.join.Join3Service" id="join3Service">
+        <beans:property name="join3DAO" ref="join3DAO"/>
+    </beans:bean>
+
+
+    <context:component-scan base-package="com"/>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <beans:bean class="org.springframework.orm.hibernate4.HibernateTransactionManager" id="transactionManager">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </beans:bean>
+
+</beans:beans>

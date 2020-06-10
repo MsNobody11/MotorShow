@@ -1,0 +1,144 @@
+html
+{
+
+  background-color: white;
+}
+
+/*общий дизайн страницы*/
+body
+{
+    font-family: "Helvetica", sans-serif;
+
+}
+/*стили для определения положения меню*/
+.menu
+{
+    padding: initial;
+    text-align: center;
+    color: white;
+    width: 100%;
+    background-color: #00a8e8;
+}
+/*стили для таблицы меню*/
+.menu table
+{
+    width: 200px;
+    margin: auto;
+}
+/*стили для кнопок меню*/
+.buttonMenu
+{
+    font-family: "Helvetica", sans-serif;
+    font-size: 18px;
+    cursor:pointer;
+    display: compact;
+    -webkit-appearance: button;
+    height:25px;
+    width:200px;
+    font-weight: 600;
+    text-align:center;
+    text-decoration: none;
+    background-color: #00a8e8;
+    color: white;
+
+}
+/*стили для ячеек таблицы меню*/
+.menu td
+{
+    font-family: "Blogger Sans", sans-serif;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px 5px;
+    width: 200px;
+    overflow: hidden;
+    word-break: normal;
+    background-color: #00a8e8;
+    border-style: none;
+}
+/*стили для кнопки Сохранить*/
+.buttonAdd
+{
+    background-color: #00a8e8;
+    font-family: "Helvetica", sans-serif;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    color: white;
+    margin: -10px;
+
+}
+
+
+table
+{
+
+    border-collapse: collapse;
+}
+
+
+form
+{
+
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+/*стили для таблицы*/
+td
+{
+    font-family: "Helvetica", sans-serif;
+    height: 55px;
+
+    font-weight: 100;
+    font-size: 14px;
+    text-align: center;
+    background-color: #dcdcdd;
+
+    color: #4c5c68;
+    word-break: break-all;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-bottom: 3px solid aliceblue;
+
+
+}
+
+.tg tr:hover td
+{
+    background-color: lightblue;
+}
+
+/*стили для шапки таблицы*/
+th
+{
+    height: 55px;
+    font-family: "Helvetica", sans-serif;
+    font-weight: 300;
+    color: #46494c;
+    font-size: 15px;
+    background-color: #c5c3c6;
+    word-break: break-all;
+    border-bottom: 3px solid #00a8e8;
+    padding: 10px;
+    overflow: hidden;
+
+}
+
+h1
+{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4c5c68;
+    padding: 10px;
+    font-family: "Helvetica", sans-serif;
+    font-weight: 400;
+}
+
+a
+{
+    color: #00a8e8;
+}
+
